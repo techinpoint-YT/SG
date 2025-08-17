@@ -1,17 +1,107 @@
+# SG_RLGL Configuration File
+# Red Light Green Light Plugin Configuration
+
+# Game settings
+game:
+  # Maximum number of players per arena
+  max-players: 20
+  # Minimum players to start a game
+  min-players: 2
+
+# Timer settings for light phases
+timers:
+  red-light:
+    min: 3    # Minimum seconds for red light
+    max: 8    # Maximum seconds for red light
+  green-light:
+    min: 5    # Minimum seconds for green light
+    max: 15   # Maximum seconds for green light
+
+# Elimination settings
+elimination:
+  # Method: KILL, KICK, or TELEPORT
+  method: "KICK"
+  # Enable spectator mode for eliminated players (if not kicked)
+  spectator-mode: true
+
+# Visual and audio effects
+effects:
+  sounds:
+    enabled: true
+    green-light: "BLOCK_NOTE_BLOCK_PLING"
+    red-light: "BLOCK_NOTE_BLOCK_BASS"
+  boss-bar:
+    enabled: true
+  action-bar:
+    enabled: true
+
+# Reward system
+rewards:
+  # Commands to execute when a player wins (use {player} and {arena} placeholders)
+  commands:
+    - "give {player} diamond 5"
+    - "broadcast {player} won the Red Light Green Light game in arena {arena}!"
+
+# Messages (use & for color codes, {player}, {arena}, {time} for placeholders)
+messages:
+  prefix: "&6[SG_RLGL]&r "
+  
+  # Game messages
+  game-start: "&aGame starting in arena {arena}!"
+  game-started: "&aGame started in arena {arena}!"
+  game-stopped: "&cGame stopped in arena {arena}."
+  game-already-active: "&cGame is already active in arena {arena}!"
+  no-active-game: "&cNo active game in arena {arena}."
+  
+  # Light messages
+  green-light: "&aGreen Light!"
+  red-light: "&cRed Light!"
+  green-light-action: "&a&lGO GO GO!"
+  red-light-action: "&c&lSTOP!"
+  
+  # Player messages
+  eliminated: "&c{player} was eliminated for moving during Red Light!"
+  spectator-mode: "&7You are now in spectator mode."
+  player-won: "&a{player} reached the finish line and won!"
+  
+  # Command messages
+  config-reloaded: "&aConfiguration reloaded successfully!"
+  lobby-set: "&aLobby location set!"
+  guest-lobby-set: "&aGuest lobby location set!"
+  finish-set: "&aFinish location set at {x}, {y}, {z} in world {world}!"
+  finish-hoe-given: "&aFinish setter hoe given! Right-click a block to set finish location."
+  rules-applied: "&aWorld rules applied successfully!"
+  
+  # Role messages
+  admin-added: "&a{player} has been added as an admin!"
+  admin-removed: "&c{player} has been removed from admins."
+  guest-added: "&a{player} has been added as a guest!"
+  guest-removed: "&c{player} has been removed from guests."
+  winner-removed: "&c{player} has been removed from winners."
+  
+  # Teleport messages
+  guests-teleported: "&a{count} guest(s) teleported."
+  admins-teleported: "&a{count} admin(s) teleported."
+  teleported: "&aTeleported successfully!"
+  location-not-set: "&cTarget location has not been set!"
+  
+  # Arena messages
+  arena-created: "&aArena '{arena}' created successfully!"
+  arena-already-exists: "&cArena '{arena}' already exists!"
+  no-arenas: "&cNo arenas found."
+  
+  # Error messages
+  player-not-found: "&cPlayer '{player}' not found!"
+  no-permission: "&cYou don't have permission to use this!"
+  manual-light-control-disabled: "&cManual light control is currently disabled."
+
+# Legacy data storage (will be migrated)
 locations:
   lobby: {}
   guestLobby: {}
   finish: {}
+
 roles:
   admins: []
   guests: []
   winners: []
-game:
-  active: false
-  state: "GREEN"
-messages:
-  prefix: "&6[SG]&r "
-  start: "&aGame Starts"
-  green: "&aGreen Light"
-  red: "&cRed Light"
-  banned: "&cMoved during Red Light"

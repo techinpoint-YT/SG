@@ -1,13 +1,20 @@
 name: SG_RLGL
-main: com.king.sgrlgl.SG_RLGL
+main: com.king.sgrlgl.Main
 version: 1.0.0
-api-version: '1.21'
+api-version: '1.17'
 author: King
+description: Squid Game Red Light Green Light plugin with multi-arena support
+
 commands:
-  sg:
-    description: Squid Game Red Light Green Light controller
-    usage: /sg help
+  rlgl:
+    description: Main command for Red Light Green Light
+    usage: /rlgl <start|stop|reload|set|remove|tp|arena|help>
     permission: sgrlgl.use
+
 permissions:
   sgrlgl.use:
     default: op
+    description: Allows use of SG_RLGL commands
+  sgrlgl.admin:
+    default: op
+    description: Full administrative access to SG_RLGL
